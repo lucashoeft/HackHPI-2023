@@ -3,3 +3,6 @@ dnspython
 flask
 flask-cors
 html2text
+bs4
+tld
+lxml
