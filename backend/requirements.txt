@@ -1,0 +1,5 @@
+language_tool_python
+dnspython
+flask
+flask-cors
+html2text
