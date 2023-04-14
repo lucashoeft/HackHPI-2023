@@ -6,3 +6,4 @@ html2text
 bs4
 tld
 lxml
+nltk
