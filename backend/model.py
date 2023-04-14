@@ -40,3 +40,15 @@ class Email(NamedTuple):
     date_time_created: datetime
     data_time_modified: datetime
     body: HtmlBody
+    
+    @classmethod
+    def from_data(cls, data):
+        return cls(
+        subject=data["subject"],
+        from_=Entity(*data["from"].values()),
+        to=[Entity(*d.values()) for d in data["to"]],
+        cc=[Entity(*d.values()) for d in data["cc"]],
+        date_time_created=datetime_from_string(data["dateTimeCreated"]),
+        data_time_modified=datetime_from_string(data["dateTimeModified"]),
+        body=HtmlBody(data["body"]),
+    )
