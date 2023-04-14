@@ -9,9 +9,18 @@ from checks.links import score_links
 from checks.attachments import score_attachments
 from checks.pressure import score_pressure
 
+from chatbot.ask import ask
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    data = request.get_json()
+    print(data)
+    messages = data['messages']
+    
+    return jsonify({ "msg": ask(messages) })
 
 @app.route("/check_grammar", methods=["POST"])
 def grammar_check():
